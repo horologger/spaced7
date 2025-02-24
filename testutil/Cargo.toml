@@ -1,0 +1,13 @@
+[package]
+name = "spaces_testutil"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+bitcoind = { version = "0.36.0", features = ["26_0"] }
+spaces_client = { path = "../client" }
+assert_cmd = "2.0.16"
+
+[build-dependencies]
+zip = { version = "0.6" }
+anyhow = "1.0.66"

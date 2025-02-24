@@ -1,0 +1,48 @@
+[package]
+name = "spaces_client"
+version = "0.0.6"
+edition = "2021"
+
+
+[[bin]]
+name = "space-cli"
+path = "src/bin/space-cli.rs"
+
+[[bin]]
+name = "spaced"
+path = "src/bin/spaced.rs"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+spaces_wallet = { path = "../wallet" }
+spaces_protocol = { path = "../protocol", version = "*", features = ["std"]}
+spacedb = { git = "https://github.com/spacesprotocol/spacedb", rev = "e07259ac6fc9cea1b06ee2cfdbb93d8c3039658a" }
+
+tokio = { version = "1.37.0", features = ["signal"] }
+ctrlc = "3.4.4"
+anyhow = "1.0.86"
+clap = { version = "4.5.6", features = ["derive", "env"] }
+log = "0.4.21"
+serde = { version = "1.0.200", features = ["derive"] }
+toml = "0.8.14"
+hex = "0.4.3"
+jsonrpsee = { version = "0.22.5", features = ["server", "http-client", "macros"] }
+directories = "5.0.1"
+env_logger = "0.11.3"
+serde_json = "1.0.116"
+bincode = {version = "2.0.0-rc.3", features = ["serde", "derive"]}
+base64 = "0.22.1"
+futures = "0.3.30"
+reqwest = { version = "0.12.5", default-features = false, features = ["json", "blocking", "rustls-tls"] }
+threadpool = "1.8.1"
+tabled = "0.17.0"
+colored = "3.0.0"
+domain = {version = "0.10.3", default-features = false, features = ["zonefile"]}
+tower = "0.4.13"
+
+[dev-dependencies]
+assert_cmd = "2.0.16"
+predicates = "3.1.2"
+spaces_testutil = { path = "../testutil" }
